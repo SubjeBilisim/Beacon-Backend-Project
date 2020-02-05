@@ -22,12 +22,11 @@ public class UserService {
         return auth.getName();
     }
 
-
     public User getLoggedInUser() {
         String loggedInUserId = this.getLoggedInUserId();
-       // System.out.format("\n1. Inside >> getLoggedInUser: %s", loggedInUserId);
+        System.out.format("\n1. Inside >> getLoggedInUser: %s", loggedInUserId);
         User user = this.getUserByUuid(loggedInUserId);
-        //System.out.format("\n2. After Find User: %s", loggedInUserId);
+        System.out.format("\n2. After Find User: %s", loggedInUserId);
         return user;
     }
 

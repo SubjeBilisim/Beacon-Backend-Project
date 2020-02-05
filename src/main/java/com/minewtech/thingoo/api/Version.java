@@ -21,8 +21,8 @@ public class Version {
       //TokenUser usr = (TokenUser)ath.getDetails();
       //String customerId = usr.getUser().getCustomerId()
       VersionModel r = new VersionModel();
-      r.setVersion("1.0.0");
-      r.setMajor(1);
+      r.setVersion("2.0.0");
+      r.setMajor(2);
       r.setMinor(0);
       r.setPatch(0);
       return r;
