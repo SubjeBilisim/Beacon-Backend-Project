@@ -64,7 +64,9 @@ public class MqttConfig{
     @Value("${clientId:clientTest}")
     private String clientId;
 
-    @Value("${host:localhost}")
+//    @Value("${host:localhost}")
+//    @Value("${host:node02.myqtthub.com}")
+    @Value("${host:broker.hivemq.com}")
     private  String host;
 
     @Value("${port:1883}")

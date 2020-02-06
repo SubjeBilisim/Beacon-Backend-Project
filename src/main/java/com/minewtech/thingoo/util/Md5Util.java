@@ -5,10 +5,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Md5Util {
-
-    /**
-     * utf-8常量
-     */
     public static final String CHARSET_UTF8 = "utf-8";
 
     private Md5Util() {
@@ -65,15 +61,14 @@ public class Md5Util {
     }
 
     /**
-     * md5加密
-     * 不指定字符编码
+     * md5
      * @param origin
      * @return
      */
     public static String encode(String origin) {
         String resultString = null;
         try {
-            resultString = new String(origin);
+            resultString = origin;
             MessageDigest md = MessageDigest.getInstance("MD5");
 
             resultString = byteArrayToHexString(md.digest(resultString
@@ -85,8 +80,7 @@ public class Md5Util {
     }
 
     /**
-     * md5加密
-     * 指定字符编码
+     * md5
      * @param origin
      * @param charsetname
      * @return
@@ -94,7 +88,7 @@ public class Md5Util {
     public static String encode(String origin, String charsetname) {
         String resultString = null;
         try {
-            resultString = new String(origin);
+            resultString = origin;
             MessageDigest md = MessageDigest.getInstance("MD5");
             if (charsetname == null || "".equals(charsetname))
                 resultString = byteArrayToHexString(md.digest(resultString
@@ -110,9 +104,8 @@ public class Md5Util {
     private static final String hexDigits[] = { "0", "1", "2", "3", "4", "5",
             "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
 
-
     /**
-     * 将源字符串使用MD5加密为字节数组
+     * MD5
      * @param source
      * @return
      */
@@ -133,7 +126,7 @@ public class Md5Util {
     }
 
     /**
-     * 将源字符串使用MD5加密为32位16进制数
+     * MD5 32
      * @param source
      * @return
      */
@@ -155,10 +148,9 @@ public class Md5Util {
     }
 
     /**
-     * 验证字符串是否匹配
-     * @param unknown 待验证的字符串
-     * @param okHex 使用MD5加密过的16进制字符串
-     * @return  匹配返回true，不匹配返回false
+     * @param unknown
+     * @param okHex MD5 16
+     * @return  true，false
      */
     public static boolean validate(String unknown , String okHex) {
         return okHex.equals(encode2hex(unknown));
