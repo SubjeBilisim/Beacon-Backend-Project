@@ -28,6 +28,7 @@ public class Operation  implements Serializable {
         @Temporal(TemporalType.TIMESTAMP)
         @Getter @Setter private Date createdAt;
 
+        /*
         public String getUuid() {
                 return uuid;
         }
@@ -91,6 +92,8 @@ public class Operation  implements Serializable {
         public void setCreatedAt(Date createdAt) {
                 this.createdAt = createdAt;
         }
+
+         */
 
         @Override
         public String toString() {
