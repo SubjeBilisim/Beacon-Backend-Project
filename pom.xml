@@ -302,7 +302,7 @@
 					<username>3702670</username>  					<!-- grop id == -->
 					<password>a04d7d9b-67b2-4b72-91ab-df17f3093d5e</password> 	<!-- grop id == -->
 					<repository>registry.hub.docker.com/3702670/thingoo</repository>
-					<tag>1.0</tag>
+					<tag>1.3-SNAPSHOT</tag>
 				</configuration>
 			</plugin>
 
