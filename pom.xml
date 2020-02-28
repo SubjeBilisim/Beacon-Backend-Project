@@ -9,7 +9,7 @@
 
 	<scm>                    													 <!--***-->
 		<developerConnection>scm:git:https://github.com/hakkisagdic/beacon-project-backend</developerConnection>
-		<tag>1.0</tag>
+		<tag>1.0-SNAPSHOT</tag>
 	</scm>
 
 
