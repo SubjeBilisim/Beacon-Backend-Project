@@ -285,33 +285,24 @@
 			</plugin>
 
 			<plugin>
-				<groupId>com.spotify</groupId>   								<!-- *** == -->
-				<artifactId>dockerfile-maven-plugin</artifactId> 				<!-- *** == -->
-				<version>1.4.12</version>
-				<executions>
-					<execution>
-						<id>default</id>
-						<goals>
-							<goal>build</goal>
-							<goal>push</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>tag-latest</id>
-						<goals>
-							<goal>build</goal>
-							<goal>push</goal>
-						</goals>
-						<configuration>
-							<tag>latest</tag>
-						</configuration>
-					</execution>
-				</executions>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.5</version>
 				<configuration>
-					<username>3702670</username>  					<!-- grop id == -->
-					<password>a04d7d9b-67b2-4b72-91ab-df17f3093d5e</password> 	<!-- grop id == -->
-					<repository>registry.hub.docker.com/3702670/thingoo</repository>
-					<tag>1.0</tag>
+					<imageName>mcy-sb-dockerize-with-maven</imageName>
+					<baseImage>anapsix/alpine-java</baseImage>
+					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
 				</configuration>
 			</plugin>
 
