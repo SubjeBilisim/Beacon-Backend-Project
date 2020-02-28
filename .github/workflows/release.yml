@@ -25,8 +25,13 @@ jobs:
     - name: Prepare release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: mvn --batch-mode release:prepare -Dusername=$GITHUB_ACTOR -Dpassword=$GITHUB_TOKEN
+      run: mvn --batch-mode release:prepare -Dusername=$GITHUB_ACTOR -Dpassword=$GITHUB_TOKEN 
+    - name: One Click Docker
+      uses: pangzineng/Github-Action-One-Click-Docker@v1.1.1
+        secrets = [
+       "3702670", 
+       "Bugatticr7**"
+        ]
     - name: Perform release
-      env:
-        DOCKER_HUB_TOKEN: a04d7d9b-67b2-4b72-91ab-df17f3093d5e
       run: mvn --batch-mode release:perform
+      
