@@ -26,15 +26,13 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: mvn --batch-mode release:prepare -Dusername=$GITHUB_ACTOR -Dpassword=$GITHUB_TOKEN             
-    - name: docker login
-      uses: actions/docker/login@master
-      env:
-        DOCKER_PASSWORD: "Bugatticr7**"
-        DOCKER_USERNAME: "3702670"        
-    - name: docker push
-      uses: actions/docker/cli@master
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        args: push 3702670/thingoo:tagname      
+        name: myDocker/repository
+        username: "3702670"
+        password: "Bugatticr7**"		  
     - name: Perform release
       run: mvn --batch-mode release:perform
       
