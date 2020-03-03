@@ -30,7 +30,7 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: myDocker/repository
+        name: 3702670/thingoo
         username: "3702670"
         password: "Bugatticr7**"		  
     - name: Perform release
