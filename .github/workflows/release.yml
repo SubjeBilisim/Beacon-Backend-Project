@@ -26,13 +26,18 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: mvn --batch-mode release:prepare -Dusername=$GITHUB_ACTOR -Dpassword=$GITHUB_TOKEN             
-    - name: One Click Docker
-      uses: pangzineng/Github-Action-One-Click-Docker@v1.*
-        secrets = [
-       "3702670", 
-       "Bugatticr7**",
-       docker push 3702670/thingoo:tagname
-        ]   
+    - name: docker login
+      uses: actions/docker/login@master
+      env:
+      DOCKER_PASSWORD: "Bugatticr7**"
+      DOCKER_USERNAME: "3702670"      
+    - name: docker push
+
+      uses: actions/docker/cli@master   
+      with:
+
+    args: push 3702670/thingoo:tagname       
+      
     - name: Perform release
       run: mvn --batch-mode release:perform
       
