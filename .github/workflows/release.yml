@@ -28,10 +28,4 @@ jobs:
       run: mvn --batch-mode release:prepare -Dusername=$GITHUB_ACTOR -Dpassword=$GITHUB_TOKEN       
     - name: Perform release
       run: mvn --batch-mode release:perform
-    - uses: actions/checkout@master
-    - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        name: 3702670/thingoo
-        username: "3702670"
-        password: "a04d7d9b-67b2-4b72-91ab-df17f3093d5e"
+   
