@@ -318,7 +318,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>3702670/cheers2019</repository> 						<!-- ${docker.image.prefix}/${project.artifactId} -->
+					<repository>3702670/thingoo</repository> 						<!-- ${docker.image.prefix}/${project.artifactId} -->
 					<buildArgs>
 						<JAR_FILE>beacon-project-backend.jar</JAR_FILE> <!-- target/${project.build.finalName}.jar -->
 					</buildArgs>
