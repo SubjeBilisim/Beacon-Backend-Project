@@ -320,7 +320,7 @@
                         <tagNameFormat>1.12-SNAPSHOT</tagNameFormat>
 				</configuration>
 			</plugin>
-
+				<!-- DENEME-->
 		</plugins>
 	</build>
 </project>
