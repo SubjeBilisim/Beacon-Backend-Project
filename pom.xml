@@ -318,11 +318,13 @@
 					</execution>
 				</executions>
 				<configuration>
-					<!--	<username>3702670</username> -->								 <!-- Added 031020 -->
-					<!--    <password>a04d7d9b-67b2-4b72-91ab-df17f3093d5e</password> -->								 <!-- Added 031020 -->
+						<username>3702670</username> 								 <!-- Added 031020 -->
+					    <password>a04d7d9b-67b2-4b72-91ab-df17f3093d5e</password> 								 <!-- Added 031020 -->
 					<repository>3702670/thingoo</repository> 						<!-- ${docker.image.prefix}/${project.artifactId} -->
+					<tag>${project.version}</tag>									<!-- Added 031020 -->
 					<buildArgs>
-						<JAR_FILE>beacon-project-backend.jar</JAR_FILE> <!-- target/${project.build.finalName}.jar -->
+					<!--	<JAR_FILE>beacon-project-backend.jar</JAR_FILE>  target/${project.build.finalName}.jar -->
+						<JAR_FILE>${project.build.finalName}-jar-with-dependencies.jar</JAR_FILE>  <!-- Added 031020 -->
 					</buildArgs>
 				</configuration>
 				<dependencies>
