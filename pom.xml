@@ -9,7 +9,7 @@
 
 	<scm>                    													 
 		<developerConnection>scm:git:https://github.com/hakkisagdic/beacon-project-backend</developerConnection>
-		<tag>1.12-SNAPSHOT</tag>		
+		<tag>1.13-SNAPSHOT</tag>
 	</scm>
 
 	<name>thingoo-server</name>
@@ -317,7 +317,7 @@
                     <artifactId>maven-release-plugin</artifactId>
                     <version>2.5.3</version>
                     <configuration>
-                        <tagNameFormat>1.12-SNAPSHOT</tagNameFormat>
+                        <tagNameFormat>1.13-SNAPSHOT</tagNameFormat>
 				</configuration>
 			</plugin>
 				<!-- DENEME-->
