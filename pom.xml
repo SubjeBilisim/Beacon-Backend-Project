@@ -318,8 +318,8 @@
 					</execution>
 				</executions>
 				<configuration>
-					<username>3702670</username>								 <!-- Added 031020 -->
-					<password>a04d7d9b-67b2-4b72-91ab-df17f3093d5e</password>								 <!-- Added 031020 -->
+					<!--	<username>3702670</username> -->								 <!-- Added 031020 -->
+					<!--    <password>a04d7d9b-67b2-4b72-91ab-df17f3093d5e</password> -->								 <!-- Added 031020 -->
 					<repository>3702670/thingoo</repository> 						<!-- ${docker.image.prefix}/${project.artifactId} -->
 					<buildArgs>
 						<JAR_FILE>beacon-project-backend.jar</JAR_FILE> <!-- target/${project.build.finalName}.jar -->
