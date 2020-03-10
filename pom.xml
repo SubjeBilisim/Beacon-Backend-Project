@@ -4,14 +4,13 @@
 
 	<groupId>com.minewtech.thingoo</groupId>
 	<artifactId>thingoo-server</artifactId>
-	<version>1.11-SNAPSHOT</version>            <!-- <version>1.1.7</version>-->
+	<version>1.11-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<scm>                    													 
 		<developerConnection>scm:git:https://github.com/hakkisagdic/beacon-project-backend</developerConnection>
 		<tag>HEAD</tag>		
 	</scm>
-
 
 	<name>thingoo-server</name>
 	<description>Thingoo Server for Spring Boot, MQTT and Influxdb</description>
@@ -20,7 +19,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.3.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath />
 	</parent>
 
 	<properties>
@@ -30,8 +29,8 @@
 		<springfox-version>2.6.1</springfox-version>
 		<!-- Dependency Versions -->
 		<influxdb-java.version>2.5</influxdb-java.version>
-		<dockerfile.version>1.4.1</dockerfile.version>						<!-- Added030920 -->
-		<docker.image.prefix>beacon-project-backend</docker.image.prefix>   <!-- Added030920 -->
+		<dockerfile.version>1.4.1</dockerfile.version>
+		<docker.image.prefix>beacon-project-backend</docker.image.prefix>
 	</properties>
 
 	<dependencies>
@@ -134,13 +133,6 @@
 			<artifactId>spring-messaging</artifactId>
 		</dependency>
 
-		<!-- dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zuul</artifactId>
-            <version>1.2.3.RELEASE</version>
-        </dependency -->
-
-		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -260,8 +252,8 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId> 						 <!-- *** == -->
-				<artifactId>maven-assembly-plugin</artifactId>						 <!-- *** == -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.5.3</version>
 				<configuration>
 					<descriptorRefs>
@@ -285,29 +277,10 @@
 				</executions>
 			</plugin>
 
-			<!--	<plugin>
-                    <groupId>com.spotify</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>0.4.5</version>
-                    <configuration>
-                        <imageName>mcy-sb-dockerize-with-maven</imageName>
-                        <baseImage>anapsix/alpine-java</baseImage>
-                        <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-                        <resources>
-                            <resource>
-                                <targetPath>/</targetPath>
-                                <directory>${project.build.directory}</directory>
-                                <include>${project.build.finalName}.jar</include>
-                            </resource>
-                        </resources>
-                    </configuration>
-                </plugin>		-->
-
-			<plugin>                                                  <!-- Added 030920 -->
+			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>1.4.13</version> 								<!--${dockerfile.version}-->
-				<!-- Wire up to the default build phases -->
+				<version>1.4.13</version>
 				<executions>
 					<execution>
 						<id>default</id>
@@ -318,24 +291,22 @@
 					</execution>
 				</executions>
 				<configuration>
-						<username>3702670</username> 								 <!-- Added 031020 -->
-					    <password>a04d7d9b-67b2-4b72-91ab-df17f3093d5e</password> 								 <!-- Added 031020 -->
-					<repository>3702670/thingoo</repository> 						<!-- ${docker.image.prefix}/${project.artifactId} -->
-					<tag>${project.version}</tag>									<!-- Added 031020 -->
+						<username>3702670</username>
+					    <password>a04d7d9b-67b2-4b72-91ab-df17f3093d5e</password>
+					<repository>3702670/thingoo</repository>
+					<tag>${project.version}</tag>
 					<buildArgs>
-					<!--	<JAR_FILE>beacon-project-backend.jar</JAR_FILE>  target/${project.build.finalName}.jar -->
-						<JAR_FILE>${project.build.finalName}-jar-with-dependencies.jar</JAR_FILE>  <!-- Added 031020 -->
+						<JAR_FILE>${project.build.finalName}-jar-with-dependencies.jar</JAR_FILE>
 					</buildArgs>
 				</configuration>
 				<dependencies>
-					<!-- To make this work on JDK 9+ -->
 					<dependency>
 						<groupId>javax.activation</groupId>
 						<artifactId>javax.activation-api</artifactId>
 						<version>1.2.0</version>
 					</dependency>
 				</dependencies>
-			</plugin>													 <!-- Added 030920 -->
+			</plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -351,12 +322,9 @@
                     <artifactId>maven-release-plugin</artifactId>
                     <version>2.5.3</version>
                     <configuration>
-                        <tagNameFormat>1.11-SNAPSHOT</tagNameFormat> 			<!-- grop id ==1.11-SNAPSHOT -->
+                        <tagNameFormat>1.11-SNAPSHOT</tagNameFormat>
 				</configuration>
 			</plugin>
-
-
-
 
 		</plugins>
 	</build>
