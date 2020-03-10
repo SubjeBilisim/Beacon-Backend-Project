@@ -4,12 +4,12 @@
 
 	<groupId>com.minewtech.thingoo</groupId>
 	<artifactId>thingoo-server</artifactId>
-	<version>1.12-SNAPSHOT</version>     
+	<version>1.12</version>     
 	<packaging>jar</packaging>
 
 	<scm>                    													 
 		<developerConnection>scm:git:https://github.com/hakkisagdic/beacon-project-backend</developerConnection>
-		<tag>HEAD</tag>		
+		<tag>1.11-SNAPSHOT</tag>		
 	</scm>
 
 	<name>thingoo-server</name>
