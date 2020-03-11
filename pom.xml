@@ -320,7 +320,7 @@
                         <tagNameFormat>${project.version}</tagNameFormat>
 				</configuration>
 			</plugin>
-				
+				<!--DENEME >>
 		</plugins>
 	</build>
 </project>
