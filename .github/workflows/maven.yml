@@ -229,7 +229,7 @@ jobs:
         manifests: |
           kubernetes/demodeployment.yaml
         images: |
-          subjerepo.azurecr.io/k8sdemo:${{ github.sha }} 
+          subjerepo.azurecr.io/k8sdemo:${{ github. }} 
         imagepullsecrets: |
           acr-secret
           namespace: githubactionsdemo    
