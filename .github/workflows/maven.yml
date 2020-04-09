@@ -66,13 +66,13 @@ jobs:
    #     GITHUB_TOKEN: ${{ secrets.github }}
    #     SONAR_TOKEN: ${{ secrets.sonarcloud }}
     # SCA     
-    - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/node@master
-      env:
-        SNYK_TOKEN: ${{ secrets.snyk_SUBJE }}
-      with:
-        command: monitor
-        args: --severity-threshold=high
+    #- name: Run Snyk to check for vulnerabilities
+    #  uses: snyk/actions/node@master
+    #  env:
+    #    SNYK_TOKEN: ${{ secrets.snyk_SUBJE }}
+    #  with:
+    #    command: monitor
+    #    args: --severity-threshold=high
     - name: Slack Notification for Snyk
       if: steps.unitslack.outputs.JOB_STATUS_UNIT != 'failed' && failure()
       uses: bryan-nice/slack-notification@master
