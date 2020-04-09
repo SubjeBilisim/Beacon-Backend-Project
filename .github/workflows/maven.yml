@@ -35,18 +35,10 @@ jobs:
 #        os: [ubuntu-latest, windows-latest,macOS-latest]
     steps:
     - uses: actions/checkout@v2
-    # SCA     
-    - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/maven-3-jdk-11@master
-      env:
-        SNYK_TOKEN: ${{ secrets.snyk_SUBJE }}
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
       with:
-        command: monitor
-        args: --severity-threshold=high
-    #- name: Set up JDK 1.8
-    #  uses: actions/setup-java@v1
-    #  with:
-    #    java-version: 1.8
+        java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 ## JAVA GEÇİŞ BİTTİ      
@@ -74,7 +66,15 @@ jobs:
     - name: Sonarcloud Step
       run: |
         mvn verify sonar:sonar
-
+    # SCA     
+    - name: Run Snyk to check for vulnerabilities
+      uses: snyk/actions/maven-3-jdk-11@master
+      env:
+        SNYK_TOKEN: ${{ secrets.snyk_SUBJE }}
+        JAVA_HOME: /usr/local/openjdk-11
+      with:
+        command: monitor
+        args: --severity-threshold=high
 
     - name: Slack Notification for Snyk
       if: steps.unitslack.outputs.JOB_STATUS_UNIT != 'failed' && failure()
