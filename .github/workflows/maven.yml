@@ -37,7 +37,7 @@ jobs:
     - uses: actions/checkout@v2
     # SCA     
     - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/maven@master
+      uses: snyk/actions/maven-3-jdk-11@master
       env:
         SNYK_TOKEN: ${{ secrets.snyk_SUBJE }}
       with:
