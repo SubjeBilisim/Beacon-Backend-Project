@@ -31,6 +31,11 @@
 		<influxdb-java.version>2.5</influxdb-java.version>
 		<dockerfile.version>1.4.1</dockerfile.version>
 		<docker.image.prefix>beacon-project-backend</docker.image.prefix>
+		<!-- Sonar Cloud -->
+		<sonar.projectKey>beacon_project</sonar.projectKey>
+  		<sonar.organization>hakkisagdic</sonar.organization>
+  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  		<sonar.login>596f5045470e820fd1b163f8fb9510ebd06b6728</sonar.login>
 	</properties>
 
 	<dependencies>
