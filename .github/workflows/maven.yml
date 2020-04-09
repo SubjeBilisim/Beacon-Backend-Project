@@ -35,6 +35,14 @@ jobs:
 #        os: [ubuntu-latest, windows-latest,macOS-latest]
     steps:
     - uses: actions/checkout@v2
+    # SCA     
+    - name: Run Snyk to check for vulnerabilities
+      uses: snyk/actions/maven@master
+      env:
+        SNYK_TOKEN: ${{ secrets.snyk_SUBJE }}
+      with:
+        command: monitor
+        args: --severity-threshold=high
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
@@ -67,14 +75,7 @@ jobs:
       run: |
         mvn verify sonar:sonar
 
-    # SCA     
-    - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/maven-3-jdk-11@master
-      env:
-        SNYK_TOKEN: ${{ secrets.snyk_SUBJE }}
-      with:
-        command: monitor
-        args: --severity-threshold=high
+
     - name: Slack Notification for Snyk
       if: steps.unitslack.outputs.JOB_STATUS_UNIT != 'failed' && failure()
       uses: bryan-nice/slack-notification@master
