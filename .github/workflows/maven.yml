@@ -59,6 +59,9 @@ jobs:
         echo "Pull Request Number - ${{ steps.unitslack.outputs.JOB_STATUS_UNIT }}"
         echo "Pull Request Number - $JOB_STATUS_UNIT"
       if: always()
+    - name: mvn sonar
+      run: |
+        mvn verify sonar:sonar
     # SAST    
    # - name: SonarCloud Step
    #   uses: sonarsource/sonarcloud-github-action@master
@@ -91,7 +94,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD_SUBJE }}
     # Docker build and push to a Azure Container registry (ACR)
     - run: |
-       docker build . -t subjerepo.azurecr.io/k8sdemo:${{ github.run_id }} -f Dockerfile.prod
+       docker build . -t subjerepo.azurecr.io/k8sdemo:${{ github.run_id }}
        docker push subjerepo.azurecr.io/k8sdemo:${{ github.run_id }}
     # Set the target AKS cluster.
     - name: Slack Notification for Build
