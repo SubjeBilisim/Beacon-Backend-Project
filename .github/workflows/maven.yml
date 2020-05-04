@@ -88,7 +88,6 @@ jobs:
     # test
     - uses: azure/docker-login@v1 
       with:
-        #login-server: acraltug.azurecr.io
         login-server: subjerepo.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME_SUBJE }} 
         password: ${{ secrets.REGISTRY_PASSWORD_SUBJE }}
