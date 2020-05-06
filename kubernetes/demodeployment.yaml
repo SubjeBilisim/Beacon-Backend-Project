@@ -21,7 +21,7 @@ metadata:
   namespace: githubactionsdemo
   labels: 
     name: softwareone-app
-    version: 1.0
+    text: deneme
 spec: 
   replicas: 1
   template: 
