@@ -21,6 +21,7 @@ metadata:
   namespace: githubactionsdemo
   labels: 
     name: softwareone-app
+    version: 1.0
 spec: 
   replicas: 1
   template: 
@@ -31,7 +32,7 @@ spec:
       imagePullSecrets:
         - name: acr-secret
       containers:
-#      - image: subjerepo.azurecr.io/k8sdemo:${{ github.sha }}
+
       - image: subjerepo.azurecr.io/k8sdemo:${{ github.run_id }} 
         name: githubactions-container
         resources: 
