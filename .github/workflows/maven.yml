@@ -124,9 +124,7 @@ jobs:
     - uses: azure/aks-set-context@v1 
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS_SUBJE }}' 
-        #cluster-name: swoaks01
         cluster-name: subjeakscluster
-        #resource-group: altug
         resource-group: Subje-AKS-RG
     # Create imagepullsecret for Azure Container registry (ACR)
     - uses: azure/k8s-create-secret@v1 
