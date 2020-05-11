@@ -8,7 +8,7 @@
 	<packaging>jar</packaging>
 
 	<scm>                    													 
-		<developerConnection>scm:git:https://github.com/hakkisagdic/beacon-project-backend</developerConnection>
+		<developerConnection>scm:git:https://github.com/SubjeBilisimTekno/beacon-project-backend</developerConnection>
 		<tag>${project.version}</tag>
 	</scm>
 
@@ -33,9 +33,9 @@
 		<docker.image.prefix>beacon-project-backend</docker.image.prefix>
 		<!-- Sonar Cloud -->
 		<sonar.projectKey>beacon_project</sonar.projectKey>
-  		<sonar.organization>hakkisagdic</sonar.organization>
+  		<sonar.organization>SubjeBilisimTekno</sonar.organization>
   		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-  		<sonar.login>596f5045470e820fd1b163f8fb9510ebd06b6728</sonar.login>
+  		<sonar.login>7b98128be6b3d40ea0387b4b9f7c3982c5616f2b</sonar.login>
 	</properties>
 
 	<dependencies>
