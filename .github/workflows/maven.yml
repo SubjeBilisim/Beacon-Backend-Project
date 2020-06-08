@@ -1,5 +1,3 @@
-## Altug Yildirim
-
 name: Node.js CI
 ## değişiklik
 ## pr için
@@ -110,16 +108,6 @@ jobs:
     steps:    
     # download binary
     - uses: actions/checkout@v2
-    # - name: Set up Python 3.8
-    #   uses: actions/setup-python@v1
-    #   with:
-    #     python-version: "3.8.2"
-    # - name: Install dependencies
-    #   run: |
-    #     echo "check python version"
-    #     python -V
-    #     python -m pip install --upgrade pip
-    #     python -m pip install pipenv
     # start AKS things
     - uses: azure/aks-set-context@v1 
       with:
@@ -129,7 +117,6 @@ jobs:
     # Create imagepullsecret for Azure Container registry (ACR)
     - uses: azure/k8s-create-secret@v1 
       with:
-        #login-server: acraltug.azurecr.io
         container-registry-url: subjerepo.azurecr.io
         container-registry-username: ${{ secrets.REGISTRY_USERNAME_SUBJE }} 
         container-registry-password: ${{ secrets.REGISTRY_PASSWORD_SUBJE }}
@@ -209,14 +196,11 @@ jobs:
     - uses: azure/aks-set-context@v1 
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS_SUBJE }}' 
-        #cluster-name: swoaks01
         cluster-name: subjeakscluster
-        #resource-group: altug
         resource-group: Subje-AKS-RG
     # Create imagepullsecret for Azure Container registry (ACR)
     - uses: azure/k8s-create-secret@v1 
       with:
-        #login-server: acraltug.azurecr.io
         container-registry-url: subjerepo.azurecr.io
         container-registry-username: ${{ secrets.REGISTRY_USERNAME_SUBJE }} 
         container-registry-password: ${{ secrets.REGISTRY_PASSWORD_SUBJE }}
