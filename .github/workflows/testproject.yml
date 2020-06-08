@@ -1,0 +1,36 @@
+name: Test Tool CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/checkout@master
+
+    - uses: matt-ball/newman-action@master
+      with:
+         collection: postman_collection.json
+         environment: postman_environment.json
+         postmanApiKey: ${{ secrets.postmanApiKey }}
+     
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install -g newman
+    - run: ls
+#    - run: pwd
+#    - run: npm run /home/runner/work/Beacon-Backend-Project/Beacon-Backend-Project/postman_collection.json
+    - run: docker run -v /home/runner/work/Beacon-Backend-Project/Beacon-Backend-Project/collections:/etc/newman -t postman/newman:ubuntu run "postman_collection.json"
