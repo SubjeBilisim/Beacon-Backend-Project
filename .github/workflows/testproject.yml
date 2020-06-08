@@ -23,13 +23,13 @@ jobs:
       with:
          collection: postman_collection.json
          environment: postman_environment.json
-         postmanApiKey: ${{ secrets.postmanApiKey }}
+        # postmanApiKey: ${{ secrets.postmanApiKey }}
      
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install -g newman
+   # - name: Use Node.js ${{ matrix.node-version }}
+    #  uses: actions/setup-node@v1
+     # with:
+      #  node-version: ${{ matrix.node-version }}
+    #- run: npm install -g newman
     - run: ls
 #    - run: pwd
 #    - run: npm run /home/runner/work/Beacon-Backend-Project/Beacon-Backend-Project/postman_collection.json
