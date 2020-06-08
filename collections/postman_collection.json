@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "f805a754-3de0-4aa5-b320-59e87db9ef62",
+		"name": "TestProject",
+		"description": "TestProject API tryouts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "return agent",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Nngez0cvqXfEoNsnWvuok-paokki9OQJ-_zGW0cq8-41",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.testproject.io/v2/agents?_start=0&_limit=10",
+					"protocol": "https",
+					"host": [
+						"api",
+						"testproject",
+						"io"
+					],
+					"path": [
+						"v2",
+						"agents"
+					],
+					"query": [
+						{
+							"key": "_start",
+							"value": "0"
+						},
+						{
+							"key": "_limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get project",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Nngez0cvqXfEoNsnWvuok-paokki9OQJ-_zGW0cq8-41",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.testproject.io/v2/projects?_start=0&_limit=10",
+					"protocol": "https",
+					"host": [
+						"api",
+						"testproject",
+						"io"
+					],
+					"path": [
+						"v2",
+						"projects"
+					],
+					"query": [
+						{
+							"key": "_start",
+							"value": "0"
+						},
+						{
+							"key": "_limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "512adce8-aa70-4c3e-9819-ed96646866d3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3917c835-777e-47ca-9168-5871840f9fdc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
