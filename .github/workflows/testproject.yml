@@ -33,4 +33,8 @@ jobs:
     - run: ls
 #    - run: pwd
 #    - run: npm run /home/runner/work/Beacon-Backend-Project/Beacon-Backend-Project/postman_collection.json
-    - run: docker run -v /home/runner/work/Beacon-Backend-Project/Beacon-Backend-Project/collections:/etc/newman -t postman/newman:ubuntu run "postman_collection.json"
+#    - run: docker run -v /home/runner/work/Beacon-Backend-Project/Beacon-Backend-Project/collections:/etc/newman -t postman/newman:ubuntu run "postman_collection.json"
+    - run: docker run -v ~/collections:/etc/newman -t postman/newman:ubuntu \
+        run "postman_collection.json.postman_collection" \
+        --environment="postman_environment.json.postman_environment" \
+        --reporters="json,cli" --reporter-json-export="newman-results.json"
