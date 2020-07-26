@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: maven-svc
+  namespace: dev1maven
+  labels: 
+    name: maven-svc
+spec: 
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 3000
+    targetPort: 3000
+  selector:
+    name: maven-app
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata: 
+  name: maven-deploy
+  namespace: dev1maven
+  labels: 
+    name: maven-app
+spec: 
+  replicas: 1
+  template: 
+    metadata:
+      labels: 
+        name: maven-app
+    spec:
+      imagePullSecrets:
+        - name: acr-secret
+      containers:
+      - image: repodev1.azurecr.io/k8smaven:${{ github.run_id }} 
+        name: githubactions-container
+        resources: 
+          requests:
+            cpu: "20m"
+            memory: "55Mi"
+        env:
+        - name: testEnv
+          value: testEnv
+        ports:
+        - containerPort: 3000
+          name: maven-app
+        imagePullPolicy: Always
+      restartPolicy: Always
